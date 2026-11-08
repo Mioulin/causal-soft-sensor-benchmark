@@ -1,0 +1,242 @@
+[
+  {
+    "seed": 42,
+    "split": "test",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0013731421267699682,
+      -0.0006671326707354792
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "test",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0016059437880028317,
+      -0.000905365485778463
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "test",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0013800872784446294,
+      -0.000499372379981239
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "test",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.004031986085430955,
+      -0.0031391256024362085
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "ood",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.003560829867498902,
+      -0.002849487878624737
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "ood",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0020392506696236407,
+      -0.0011692864193643957
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "ood",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0018642950260027782,
+      -0.0007045901751453741
+    ]
+  },
+  {
+    "seed": 42,
+    "split": "ood",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.004552237555824568,
+      -0.001986243325648836
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "test",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0014823453779896883,
+      -0.0009199803875430646
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "test",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0014482920773598383,
+      -0.0009214413990235439
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "test",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0012527137514774436,
+      -0.000735204908949954
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "test",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.005368415933283982,
+      -0.00315774103172677
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "ood",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0031058028076908907,
+      -0.002083190407617976
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "ood",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0012752516357208618,
+      -0.000669249648269015
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "ood",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0021925632000116134,
+      -0.0012196683367881461
+    ]
+  },
+  {
+    "seed": 43,
+    "split": "ood",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.00532916074329149,
+      -0.0036779125285939687
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "test",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0014856449825192267,
+      -0.0009030009679013111
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "test",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0012416430785375239,
+      -0.0007684187639939533
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "test",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0013301966546301613,
+      -0.0004839850847552135
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "test",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0044024334028203715,
+      -0.0034577282823004263
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "ood",
+    "horizon": 1,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0026593756201889153,
+      -0.0016547666006215698
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "ood",
+    "horizon": 3,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0018860007056232461,
+      -0.001186594767372361
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "ood",
+    "horizon": 6,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.0019256669511437882,
+      -0.001027641281650683
+    ]
+  },
+  {
+    "seed": 44,
+    "split": "ood",
+    "horizon": 12,
+    "comparison": "correlated_fusion minus physics RMSE",
+    "ci95": [
+      -0.005409122338842025,
+      -0.0035466819046773303
+    ]
+  }
+]

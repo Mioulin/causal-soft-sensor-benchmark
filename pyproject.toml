@@ -1,0 +1,11 @@
+[project]
+name = "causal-soft-sensor-benchmark"
+version = "0.1.0"
+requires-python = ">=3.12,<3.14"
+dependencies = ["torch==2.15.0", "numpy==2.5.4", "matplotlib==3.11.2", "pytest==9.2.0", "ruff==0.17.4"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
