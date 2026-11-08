@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "repository_url": "https://github.com/Mioulin/causal-soft-sensor-benchmark",
+  "visibility": "public",
+  "approved_research_commit": "d0470d2a2b3c98fcf8f349f5baef761dfe2344fc",
+  "remote_commit_verified": true,
+  "weights_uploaded": false,
+  "note": "Subsequent documentation-only commit records publication; live CI is linked from README."
+}
