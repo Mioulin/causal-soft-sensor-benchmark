@@ -15,6 +15,18 @@ Original synthetic data only. No legacy industrial observations are redistribute
 | ood | independent_fusion | 0.0251 | 0.0286 | 0.0332 | 0.0539 |
 | ood | correlated_fusion | 0.0250 | 0.0285 | 0.0332 | 0.0536 |
 
+## Coverage and negative comparisons
+| Split | Horizon | Correlated fusion coverage | Mean RMSE change versus independent fusion |
+|---|---:|---:|---:|
+| test | 1 | 0.954 | +0.000004 |
+| test | 3 | 0.955 | -0.000008 |
+| test | 6 | 0.961 | +0.000049 |
+| test | 12 | 0.956 | -0.000247 |
+| ood | 1 | 0.831 | -0.000129 |
+| ood | 3 | 0.808 | -0.000004 |
+| ood | 6 | 0.869 | -0.000028 |
+| ood | 12 | 0.858 | -0.000208 |
+
 ## Methods and validity
 GRU is trained on future observed points with a masked MSE, never on latent states. Latent-state error is simulation-only secondary analysis. Normalisation uses training runs only. Checkpoints are selected by validation observed MSE. Forecasts assume constant current control; no future measurements, labels or controls enter features. Prefix-invariance is unit-tested.
 Fusion estimates second moments of forecast errors on validation data. With physics error ep and neural error en, neural weight w=(E[ep²]-E[ep en])/(E[ep²]+E[en²]-2E[ep en]), clipped to [0,1]. The comparator sets the cross moment to zero. This avoids an unjustified independence assumption but may overfit eight validation runs.

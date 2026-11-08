@@ -72,9 +72,7 @@ def replay(run):
         m = run["mask"][t].astype(bool)
         last[m] = run["obs"][t, m]
         state[m] = 0.7 * run["obs"][t, m] + 0.3 * state[m]
-        features.append(
-            np.r_[run["u"][t], run["proxy"][t], last, run["mask"][t], state]
-        )
+        features.append(np.r_[run["u"][t], run["proxy"][t], last, run["mask"][t], state])
         forecast = state.copy()
         out = []
         for h in range(1, max(HORIZONS) + 1):
@@ -182,9 +180,9 @@ def bootstrap_delta(a, b, data, h):
         counts.append(select.sum())
     rng = np.random.default_rng(992)
     idx = rng.integers(len(ids), size=(3000, len(ids)))
-    delta = np.sqrt(
-        np.asarray(sa)[idx].sum(1) / np.asarray(counts)[idx].sum(1)
-    ) - np.sqrt(np.asarray(sb)[idx].sum(1) / np.asarray(counts)[idx].sum(1))
+    delta = np.sqrt(np.asarray(sa)[idx].sum(1) / np.asarray(counts)[idx].sum(1)) - np.sqrt(
+        np.asarray(sb)[idx].sum(1) / np.asarray(counts)[idx].sum(1)
+    )
     return np.quantile(delta, [0.025, 0.975]).tolist()
 
 
@@ -227,8 +225,7 @@ def run(output, epochs=18):
         )
     )
     xx = {
-        k: torch.tensor((v["features"] - mean) / std, dtype=torch.float32)
-        for k, v in data.items()
+        k: torch.tensor((v["features"] - mean) / std, dtype=torch.float32) for k, v in data.items()
     }
     target = torch.tensor(data["train"]["targets"], dtype=torch.float32)
     mask = torch.tensor(data["train"]["mask"], dtype=torch.float32)
@@ -245,14 +242,10 @@ def run(output, epochs=18):
         for epoch in range(epochs):
             model.train()
             losses = []
-            for batch in np.array_split(
-                rng.permutation(len(target)), max(1, len(target) // 128)
-            ):
+            for batch in np.array_split(rng.permutation(len(target)), max(1, len(target) // 128)):
                 opt.zero_grad()
                 pred = model(xx["train"][batch])
-                loss = (((pred - target[batch]) ** 2) * mask[batch]).sum() / mask[
-                    batch
-                ].sum()
+                loss = (((pred - target[batch]) ** 2) * mask[batch]).sum() / mask[batch].sum()
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
                 opt.step()
@@ -261,10 +254,7 @@ def run(output, epochs=18):
             with torch.inference_mode():
                 vp = model(xx["validation"]).numpy()
             vloss = float(
-                np.sum(
-                    (vp - data["validation"]["targets"]) ** 2
-                    * data["validation"]["mask"]
-                )
+                np.sum((vp - data["validation"]["targets"]) ** 2 * data["validation"]["mask"])
                 / data["validation"]["mask"].sum()
             )
             history.append(
@@ -321,9 +311,7 @@ def run(output, epochs=18):
             radii = np.array(
                 [
                     np.quantile(
-                        np.abs(vpred[:, h] - val["targets"][:, h])[
-                            val["mask"][:, h].astype(bool)
-                        ],
+                        np.abs(vpred[:, h] - val["targets"][:, h])[val["mask"][:, h].astype(bool)],
                         0.95,
                         method="higher",
                     )
@@ -406,28 +394,70 @@ def analyse(output):
                     [
                         r["observed_rmse"]
                         for r in table
-                        if r["split"] == split
-                        and r["model"] == model
-                        and r["horizon"] == h
+                        if r["split"] == split and r["model"] == model and r["horizon"] == h
                     ]
                 )
                 for h in HORIZONS
             ]
             ax.plot(HORIZONS, vals, marker="o", label=model)
             lines.append(
-                "| "
-                + split
-                + " | "
-                + model
-                + " | "
-                + " | ".join(f"{v:.4f}" for v in vals)
-                + " |"
+                "| " + split + " | " + model + " | " + " | ".join(f"{v:.4f}" for v in vals) + " |"
             )
         ax.set(title=split, xlabel="Forecast horizon (samples)", ylabel="Observed RMSE")
         ax.legend(fontsize=7)
     fig.tight_layout()
     fig.savefig(output / "comparison.png", dpi=160)
     plt.close(fig)
+    fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+    history = json.loads((output / "history.json").read_text())
+    for seed in [42, 43, 44]:
+        rows = [r for r in history if r["seed"] == seed]
+        axs[0].plot(
+            [r["epoch"] for r in rows], [r["validation_loss"] for r in rows], label=str(seed)
+        )
+    axs[0].set(xlabel="Epoch", ylabel="Validation observed MSE")
+    axs[0].legend(title="Seed")
+    for split in ["test", "ood"]:
+        vals = [
+            np.mean(
+                [
+                    r["interval_coverage"]
+                    for r in table
+                    if r["split"] == split
+                    and r["model"] == "correlated_fusion"
+                    and r["horizon"] == h
+                ]
+            )
+            for h in HORIZONS
+        ]
+        axs[1].plot(HORIZONS, vals, marker="o", label=split)
+    axs[1].axhline(0.95, color="black", linestyle="--", label="Nominal .95")
+    axs[1].set(xlabel="Horizon", ylabel="Empirical coverage", ylim=(0, 1))
+    axs[1].legend()
+    fig.tight_layout()
+    fig.savefig(output / "diagnostics.png", dpi=160)
+    plt.close(fig)
+    lines += [
+        "",
+        "## Coverage and negative comparisons",
+        "| Split | Horizon | Correlated fusion coverage | Mean RMSE change versus independent fusion |",
+        "|---|---:|---:|---:|",
+    ]
+    for split in ["test", "ood"]:
+        for h in HORIZONS:
+            rs = [
+                r
+                for r in table
+                if r["split"] == split and r["horizon"] == h and r["model"] == "correlated_fusion"
+            ]
+            comp = [
+                r
+                for r in table
+                if r["split"] == split and r["horizon"] == h and r["model"] == "independent_fusion"
+            ]
+            lines.append(
+                f"| {split} | {h} | {np.mean([r['interval_coverage'] for r in rs]):.3f} | {np.mean([r['observed_rmse'] for r in rs]) - np.mean([r['observed_rmse'] for r in comp]):+.6f} |"
+            )
     lines += [
         "",
         "## Methods and validity",

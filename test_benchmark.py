@@ -20,9 +20,7 @@ def test_targets_and_run_boundaries():
     r = simulate(1, length=50)
     d = windows([r, simulate(2, length=50)])
     assert len(d["features"]) == 2 * (50 - max(HORIZONS) - WINDOW + 1)
-    np.testing.assert_array_equal(
-        d["targets"][0], r["obs"][WINDOW - 1 + np.array(HORIZONS)]
-    )
+    np.testing.assert_array_equal(d["targets"][0], r["obs"][WINDOW - 1 + np.array(HORIZONS)])
     assert d["mask"].sum() == len(d["features"]) * 4
 
 

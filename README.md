@@ -9,7 +9,7 @@ A reproducible numerical study of online state prediction in a six-stage process
 Python 3.12, CPU; the measured environment used PyTorch 2.15.0 and NumPy 2.5.4. Dependencies are pinned in `uv.lock`.
 
 ```bash
-uv sync --frozen
+uv sync --python 3.12 --frozen
 uv run pytest -q
 uv run ruff check .
 uv run python benchmark.py --output results --epochs 18
@@ -34,3 +34,11 @@ See [full report](results/report.md), [metrics](results/metrics.json), [cluster 
 Intervals resample only eight complete test runs. Three training seeds do not create more independent test data. Empirical residual intervals have no distribution-free guarantee under autocorrelation or drift. Some methods/horizons worsen; all results are retained. Real-plant validation, transformer comparisons and future-control oracle are NOT RUN.
 
 `benchmark.py` contains simulation, causal replay, training, fusion, evaluation and report generation. `test_benchmark.py` exercises the key validity properties. GRU uses the maintained [PyTorch implementation](https://docs.pytorch.org/docs/main/generated/torch.nn.GRU.html). Original code is MIT; synthetic data are CC0-1.0. Large checkpoints are excluded from Git but locally available and reproducible.
+
+To independently reload all three checkpoints and recompute all 120 metric rows from stored predictions:
+
+```bash
+uv run python verify_results.py
+```
+
+`results/verification.json` records this check and SHA-256 hashes. The coverage and validation-loss figure is `results/diagnostics.png`; OOD coverage can fall substantially below nominal 95%.

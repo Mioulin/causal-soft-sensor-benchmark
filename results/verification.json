@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETED",
+  "python": "3.12.13",
+  "platform": "macOS-15.7.4-arm64-arm-64bit",
+  "checkpoints": {
+    "42": "23b5ffe471b944f805eb6b4a4a7d3b0a6ed5d126697a5229395c463c25fa3491",
+    "43": "aa79e2545a8fd2b84dee4cedaaa5fd27b37e6d6c7a73c42fecdd7f270e732380",
+    "44": "24c5a2650175e6709a4cd117a083fd242c0e82fa1860afab71eaf0f3bee810db"
+  },
+  "files": {
+    "comparison.png": "3b1a71967a18b2900b6b1720be993014f5e43caa3aeb9cfa1d3c4d486b67902d",
+    "diagnostics.png": "0b904ef09e79dcf3c09c929a64cb684979598054e665e5ec0574d3a57baac0e5",
+    "gru_42.pt": "23b5ffe471b944f805eb6b4a4a7d3b0a6ed5d126697a5229395c463c25fa3491",
+    "gru_43.pt": "aa79e2545a8fd2b84dee4cedaaa5fd27b37e6d6c7a73c42fecdd7f270e732380",
+    "gru_44.pt": "24c5a2650175e6709a4cd117a083fd242c0e82fa1860afab71eaf0f3bee810db",
+    "history.json": "145afe0022434375d5d8d44d326e432c49076af993ce67197f29bb254948080a",
+    "metrics.json": "61942deef2dd413319130be2fb6ea4a95fd4ee38844a3c62bbbf5eb1e41bc8b6",
+    "paired.json": "786ce36bb06f40b5db2a22b126e176ce8e36a97d63526fa701d308cabaa423ac",
+    "predictions_42_ood.npz": "b4f32e5fdb282a3693ebf2aa3d3fedf84a39fec271a537f38e4edaa5e91eaf85",
+    "predictions_42_test.npz": "9fbe2ac32832d19a61bc456f6a0f29504418d246948f62abfd22845345f5901d",
+    "predictions_43_ood.npz": "b97884f39f3dc29ce65211e20803c6cc6f760bf7fe7e8a0f9609fae6567b0027",
+    "predictions_43_test.npz": "48c1daf834e95625baab0fbc4295976bef71023cf99527beac5aeff2c96b6118",
+    "predictions_44_ood.npz": "ba2518d4fbf8f1952731d1eebec516fa1875cfe51f9eb24b74fceaac15778e18",
+    "predictions_44_test.npz": "bb06b7c2cffa0407f531611aae6b3a5d34f73c3be57cd9264abfd6552ac99908",
+    "protocol.json": "8760135c1b53630287a112330eb28bdd16681548dbfccc4f4737fd1195efb5a0",
+    "report.md": "160ec119a7f51ebb51780f97cf0fa2e17b0fccf72a0602b60a30555975ff75ac",
+    "training_42.json": "0b8183e0734907d93bc296a7b6a2f787801283d619ccfd4d9443a5999c960632",
+    "training_43.json": "f99b56e18a4f5240353febaca46a06fcd3ea79385bf02da5f27dbc4275b8b2e0",
+    "training_44.json": "330d771cda35445110c2b6ac3f8a3685259d1cf5463c35bd29e378e6265fc722"
+  },
+  "verified_metric_rows": 120
+}
