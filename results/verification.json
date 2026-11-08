@@ -14,6 +14,7 @@
     "gru_43.pt": "aa79e2545a8fd2b84dee4cedaaa5fd27b37e6d6c7a73c42fecdd7f270e732380",
     "gru_44.pt": "24c5a2650175e6709a4cd117a083fd242c0e82fa1860afab71eaf0f3bee810db",
     "history.json": "145afe0022434375d5d8d44d326e432c49076af993ce67197f29bb254948080a",
+    "lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
     "metrics.json": "61942deef2dd413319130be2fb6ea4a95fd4ee38844a3c62bbbf5eb1e41bc8b6",
     "paired.json": "786ce36bb06f40b5db2a22b126e176ce8e36a97d63526fa701d308cabaa423ac",
     "predictions_42_ood.npz": "b4f32e5fdb282a3693ebf2aa3d3fedf84a39fec271a537f38e4edaa5e91eaf85",
@@ -24,9 +25,11 @@
     "predictions_44_test.npz": "bb06b7c2cffa0407f531611aae6b3a5d34f73c3be57cd9264abfd6552ac99908",
     "protocol.json": "8760135c1b53630287a112330eb28bdd16681548dbfccc4f4737fd1195efb5a0",
     "report.md": "160ec119a7f51ebb51780f97cf0fa2e17b0fccf72a0602b60a30555975ff75ac",
+    "tests.log": "89ef8124f4ca1b7c498c802eb6cd12125e4923832e29fd7cf991aaee82482fbd",
     "training_42.json": "0b8183e0734907d93bc296a7b6a2f787801283d619ccfd4d9443a5999c960632",
     "training_43.json": "f99b56e18a4f5240353febaca46a06fcd3ea79385bf02da5f27dbc4275b8b2e0",
     "training_44.json": "330d771cda35445110c2b6ac3f8a3685259d1cf5463c35bd29e378e6265fc722"
   },
+  "plots_exactly_reproduced": true,
   "verified_metric_rows": 120
 }

@@ -3,12 +3,13 @@
 import hashlib
 import json
 import platform
+import tempfile
 from pathlib import Path
 
 import numpy as np
 import torch
 
-from benchmark import SensorGRU, metrics, simulate, windows
+from benchmark import SensorGRU, analyse, metrics, simulate, windows
 
 
 def verify(root=Path("results")):
@@ -59,6 +60,14 @@ def verify(root=Path("results")):
                     for key, value in actual.items():
                         np.testing.assert_allclose(value, expected[key], atol=1e-10)
                     checked += 1
+    with tempfile.TemporaryDirectory() as directory:
+        scratch = Path(directory)
+        for fn in ["metrics.json", "history.json"]:
+            (scratch / fn).write_bytes((root / fn).read_bytes())
+        analyse(scratch)
+        for fn in ["comparison.png", "diagnostics.png"]:
+            assert (root / fn).read_bytes() == (scratch / fn).read_bytes(), fn
+    manifest["plots_exactly_reproduced"] = True
     for p in sorted(root.glob("*")):
         if p.is_file() and p.name != "verification.json":
             manifest["files"][p.name] = hashlib.sha256(p.read_bytes()).hexdigest()
