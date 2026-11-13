@@ -39,7 +39,7 @@ The current observation at forecast time is available by design. Tests prove pre
 
 At horizon 12, mean test RMSE over three training seeds: persistence 0.0520; physics 0.0379; GRU 0.0344; independent fusion 0.0342; correlated fusion 0.0339. Correlated fusion OOD RMSE is 0.0536. These are dimensionless simulated errors, not plant performance.
 
-See [full report](results/report.md), [metrics](results/metrics.json), [cluster intervals](results/paired.json) and [Russian guide](docs/learning_guide_ru.md).
+See [full report](results/report.md), [metrics](results/metrics.json) and [cluster intervals](results/paired.json).
 
 ![Measured forecasts](results/comparison.png)
 

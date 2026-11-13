@@ -11,7 +11,3 @@ Reviewers can inspect executable methods, reproducible synthetic experiments, co
 ## Confidentiality boundary
 
 No client identities, confidential datasets, proprietary implementation details, business requirements or commercial outcomes are disclosed. All numerical findings reported here refer to the public experiments only. Access to private work is not implied by access to this prototype.
-
-## Позиционирование по-русски
-
-Публичный прототип демонстрирует подход для моих внутренних конфиденциальных консалтинговых проектов. Он позволяет оценить методы, инженерные решения и качество проверки без раскрытия клиентских материалов. Синтетические данные и измеренные на них результаты относятся только к этой демонстрации, а не к конкретному заказчику или промышленному внедрению.
