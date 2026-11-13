@@ -8,4 +8,4 @@
 
 **What would you do with more compute?** “I would prioritise structurally different simulated regimes and licensed plant data, then evaluate temporal architectures under the same causal replay protocol.” Увеличение GRU само по себе не устраняет bias симулятора.
 
-**What was implemented?** Реально исполнены симулятор, causal replay, masked GRU training, checkpoint reload, two fusion baselines, test/OOD evaluation и тесты. Код создан с помощью AI coding assistant. Самостоятельная защита требует воспроизведения и понимания; не утверждайте единоличное ручное авторство или промышленное внедрение.
+**What was implemented?** Реально исполнены симулятор, causal replay, masked GRU training, checkpoint reload, two fusion baselines, test/OOD evaluation и тесты. Это публичный прототип подхода для конфиденциальных консалтинговых проектов. Его синтетические результаты не являются доказательством промышленного внедрения.
